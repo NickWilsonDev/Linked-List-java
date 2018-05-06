@@ -17,13 +17,30 @@ public class LinkedList<T> {
         } else if (size == 0) {
             this.head = node;
         } else {
-            Node temp;
+            Node<T> temp;
             temp = head;
             for(int i = 0; i < size; i++) {
-                temp = temp.getNext();
+                temp =  temp.getNext();
             }
         }
         this.size++;
+    }
+
+    public void remove(int position) {
+        if (position == 0) {
+            Node<T> temp = head;
+            head =  temp.getNext();
+            temp.setNext(null);
+            temp = null;
+        } else {
+            Node<T> temp = head;
+            int index = 0;
+            while ((index + 1) != position) {
+                temp.setNext(temp.getNext());
+            }
+            temp.setNext(temp.getNext().getNext());
+        }
+        this.size--;
     }
 
     /* getters */
