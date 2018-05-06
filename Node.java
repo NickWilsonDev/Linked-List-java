@@ -17,7 +17,7 @@ public class Node<T> {
         return this.data;
     }
 
-    public setNext(Node next) {
+    public void setNext(Node<T> next) {
         this.next = next;
     }
 
